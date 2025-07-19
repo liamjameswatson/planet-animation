@@ -7,31 +7,35 @@ body {
   height: 100vh;
   background-color: rgb(33, 33, 33);
   overflow: hidden;
+  max-width: 100vw;
+  max-height: 100vh;
 }
 
 .planets-container {
-  width: 150px;
-  height: 150px;
+  width: min(150px, 40vw);
+  height: min(150px, 40vw);
   border-radius: 50%;
   transform: scaleX(5);
 }
 
 .sun {
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: min(150px, 40vw);
+  height: min(150px, 40vw);
   border-radius: 50%;
   background-color: rgb(248, 244, 163);
-  box-shadow: 0 0 60px rgb(253, 203, 163), 0 0 98px rgb(184, 160, 26);
+  box-shadow: 0 0 min(60px, 15vw) rgb(253, 203, 163),
+    0 0 min(98px, 25vw) rgb(184, 160, 26);
   transform: scaleX(0.2);
 }
 
 .planet {
-  width: 60px;
-  height: 60px;
+  width: min(60px, 16vw);
+  height: min(60px, 16vw);
   border-radius: 50%;
   transform: scaleX(0.2);
 }
+
 .planet:after {
   content: "";
   position: absolute;
@@ -47,19 +51,19 @@ body {
 }
 
 .planet-container {
-  width: 60px;
-  height: 60px;
+  width: min(60px, 16vw);
+  height: min(60px, 16vw);
   animation: correct 12s infinite linear;
   position: absolute;
 }
 
 #second-planet-container {
-  left: 85px;
+  left: min(85px, 22.7vw);
 }
 
 #third-planet-container {
-  left: 42.5px;
-  top: 100px;
+  left: min(42.5px, 11.3vw);
+  top: min(100px, 26.7vw);
 }
 
 .planet-index {
@@ -68,6 +72,127 @@ body {
   position: absolute;
 }
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .planets-container {
+    width: min(120px, 50vw);
+    height: min(120px, 50vw);
+    transform: scaleX(4);
+  }
+
+  .sun {
+    width: min(120px, 50vw);
+    height: min(120px, 50vw);
+    box-shadow: 0 0 min(48px, 20vw) rgb(253, 203, 163),
+      0 0 min(78px, 32vw) rgb(184, 160, 26);
+  }
+
+  .planet {
+    width: min(48px, 20vw);
+    height: min(48px, 20vw);
+  }
+
+  .planet-container {
+    width: min(48px, 20vw);
+    height: min(48px, 20vw);
+  }
+
+  #second-planet-container {
+    left: min(68px, 28.3vw);
+  }
+
+  #third-planet-container {
+    left: min(34px, 14.2vw);
+    top: min(80px, 33.3vw);
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .planets-container {
+    width: min(100px, 60vw);
+    height: min(100px, 60vw);
+    transform: scaleX(3.5);
+  }
+
+  .sun {
+    width: min(100px, 60vw);
+    height: min(100px, 60vw);
+    box-shadow: 0 0 min(40px, 24vw) rgb(253, 203, 163),
+      0 0 min(65px, 39vw) rgb(184, 160, 26);
+  }
+
+  .planet {
+    width: min(40px, 24vw);
+    height: min(40px, 24vw);
+  }
+
+  .planet-container {
+    width: min(40px, 24vw);
+    height: min(40px, 24vw);
+  }
+
+  #second-planet-container {
+    left: min(56px, 33.6vw);
+  }
+
+  #third-planet-container {
+    left: min(28px, 16.8vw);
+    top: min(66px, 39.6vw);
+  }
+}
+
+/* Large Screen Styles */
+@media (min-width: 1200px) {
+  .planets-container {
+    width: 200px;
+    height: 200px;
+    transform: scaleX(6);
+  }
+
+  .sun {
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 0 80px rgb(253, 203, 163), 0 0 130px rgb(184, 160, 26);
+  }
+
+  .planet {
+    width: 80px;
+    height: 80px;
+  }
+
+  .planet-container {
+    width: 80px;
+    height: 80px;
+  }
+
+  #second-planet-container {
+    left: 113px;
+  }
+
+  #third-planet-container {
+    left: 56px;
+    top: 133px;
+  }
+}
+
+/* Landscape Orientation on Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .planets-container {
+    width: min(100px, 25vh);
+    height: min(100px, 25vh);
+    transform: scaleX(4);
+  }
+
+  .sun {
+    width: min(100px, 25vh);
+    height: min(100px, 25vh);
+    box-shadow: 0 0 min(40px, 10vh) rgb(253, 203, 163),
+      0 0 min(65px, 16vh) rgb(184, 160, 26);
+  }
+}
+
+/* Animation */
 #first-planet-index {
   animation: hideFirstPlanet 12s infinite;
 }
@@ -99,6 +224,7 @@ body {
 #third-planet {
   animation: thirdPlanetRender 12s infinite linear;
 }
+
 #third-planet:after {
   animation: thirdPlanetRenderRotater 12s infinite linear;
 }
