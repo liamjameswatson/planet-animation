@@ -3,7 +3,7 @@
 ## Description
 
 A calming, CSS-only animation inspired by my love of astronomy.  
-This project simulates orbiting planets around a sun using only HTML and CSS — no JavaScript at all.  
+This project simulates orbiting planets around a sun using only HTML and CSS.  
 It's a simple yet visually satisfying experiment that demonstrates creative use of keyframes, gradients, transforms, and z-index layering.
 
 ---
